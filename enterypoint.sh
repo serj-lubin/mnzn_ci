@@ -12,6 +12,7 @@ sed -i -e 's/\r$//' lin-lin-build.sh
 ./lin-lin-build.sh
 cp ./out/* /opt/bin
 cd /go/src/extmggit.manzanagroup.ru/camp/campbke
+go mod download github.com/ClickHouse/clickhouse-go
 go get ./...
 cd /go/src/extmggit.manzanagroup.ru/camp/campbke/build/lin/lin
 sed -i -e 's/\r$//' main.sh
