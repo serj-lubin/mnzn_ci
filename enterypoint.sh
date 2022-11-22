@@ -1,7 +1,15 @@
 #!/bin/bash
-#setenv TERM vt100
-printenv
+
+#cd /opt/bin
+#for f in *; do
+#  echo "File -> $f"
+# mkdir "$f"_dockerfolder
+# mv "$f" "$f"_dockerfolder
+#done
 #exit 1
+
+
+
 cd /go/src/extmggit.manzanagroup.ru/camp/json2sql
 go get ./...
 CGO_ENABLED=0 go build -ldflags "-s -w" -o json2sqlbeego
@@ -12,7 +20,6 @@ sed -i -e 's/\r$//' lin-lin-build.sh
 ./lin-lin-build.sh
 cp ./out/* /opt/bin
 cd /go/src/extmggit.manzanagroup.ru/camp/campbke
-go mod download github.com/ClickHouse/clickhouse-go
 go get ./...
 cd /go/src/extmggit.manzanagroup.ru/camp/campbke/build/lin/lin
 sed -i -e 's/\r$//' main.sh
@@ -22,6 +29,12 @@ dos2unix ./*.sh
 cp ./out/* /opt/bin/
 
 apt update && apt install rename -y
-cd /opt/bin/
 #rename 'y/A-Z/a-z/' *
 #rename 's/-//' *
+cd /opt/bin
+for f in *; do
+  echo "File -> $f"
+ mkdir "$f"_dockerfolder
+ mv "$f" "$f"_dockerfolder
+done
+
