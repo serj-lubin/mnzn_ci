@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  build:
+    ports:
+      - "8000"
+    image: golang:1.18.5-bullseye
+    stdin_open: true
+    user: 0:0
+
+    environment:
+      DD_DB_HOST: db
+#    security_opt:
+#      - "seccomp:unconfined"
+#    cap_add:
+#      - SYS_PTRACE
+#    command: bash -c  /enterypoint.sh
+    command: /bin/bash -c /enterypoint.sh
+    tty: true
+    volumes:
+      - ./enterypoint.sh:/enterypoint.sh
+      - ./campbke:/go/src/extmggit.manzanagroup.ru/camp/campbke
+      - ./json2sql:/go/src/extmggit.manzanagroup.ru/camp/json2sql
+      - ./connectors:/go/src/extmggit.manzanagroup.ru/camp/connectors
+      - ./bin:/opt/bin
+      - /opt/buildagent/system/git:/opt/buildagent/system/git
+      - ./go_cache:/go/pkgr
+      
