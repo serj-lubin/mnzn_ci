@@ -23,5 +23,5 @@ services:
       - ./connectors:/go/src/extmggit.manzanagroup.ru/camp/connectors
       - ./bin:/opt/bin
       - /opt/buildagent/system/git:/opt/buildagent/system/git
-      - ./go_cache:/go/pkgr
+      - ./go_cache:/go/pkg
       
