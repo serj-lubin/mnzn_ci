@@ -3,7 +3,7 @@ services:
   build:
     ports:
       - "8000"
-    image: golang:1.18.5-bullseye
+    image: golang:1.19-bullseye
     stdin_open: true
     user: 0:0
 
